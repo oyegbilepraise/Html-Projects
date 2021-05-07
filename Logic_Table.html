@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Logic_table</title>
+	<!-- <link rel="stylesheet" href="../bootstrap-4.5.0-dist/css/bootstrap.css"> -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+	<style>
+		body{
+			width: 50%;
+			height: 50%;
+			margin: auto;
+			/* margin-top: 30%; */
+		}
+		table, td{
+			border: 1px solid grey;
+		}
+	</style>
+<div class="main bg-danger rounded p-2 pl-5" >
+	Row: <input type="text" name="" id="res" class="ml-4 mt-2"><br>
+	Column: <input type="text" name="" id="red" class="mt-2"> <br> <br>
+	<center>
+		<select name="" id="sel">
+			<option value="ADDITION">ADDITION</option>
+			<option value="SUBTRACTION">SUBTRACTION</option>
+			<option value="MULTIPLICATION">MULTIPLICATION</option>
+			<option value="DIVISION">DIVISION</option>
+		</select><br>
+		<button onclick="myFunc()" class="btn btn-dark mt-2">Calculate!</button>
+	</center>
+	<div id="result"></div>
+	<marquee behavior="" direction="" class="">Perform Any Calculation Magic here!!! </marquee>
+</div>
+<table id="myTable" class="bg-success"></table>
+	<script>
+		function myFunc() {
+			var table = myTable;
+			var output = "";
+			var a = res.value;
+			var b = red.value;
+			// var e = i*j;
+			if(sel.value=='MULTIPLICATION'){
+				for (i = 1; i <= a; i++) {
+					// var c = i;
+					output += "<tr>";
+					for (j = 1; j <= b; j++){
+						// var d = j;
+						output += "<td>" +i+ " * " +j+ " = " +i*j+ "</td>";
+					} 
+					output += "</tr>";
+				}
+				table.innerHTML	 =  output;
+			}
+			else if (sel.value=='ADDITION'){
+				for (i = 1; i <= a; i++) {
+					// var c = i;
+					output += "<tr>";
+					for (j = 1; j <= b; j++){
+						// var d = j;
+						output += "<td>" +i+ " + " +j+ " = " +eval(i+j)+ "</td>";
+					} 
+					output += "</tr>";
+				}
+				table.innerHTML	 =  output;				
+			}
+			else if (sel.value=='DIVISION'){
+				for (i = 1; i <= a; i++) {
+					// var c = i;
+					output += "<tr>";
+					for (j = 1; j <= b; j++){
+						var u = eval (i/j)
+						u = u.toFixed(1);
+						var x = output += "<td>" +i+ " / " +j+ " = " + u + "</td>";
+						
+					} 
+					x += "</tr>";
+				}
+				table.innerHTML	 =  x;				
+			}
+			else if (sel.value=='SUBTRACTION'){
+				for (i = 1; i <= a; i++) {
+					// var c = i;
+					output += "<tr>";
+					for (j = 1; j <= b; j++){
+						// var d = j;
+						output += "<td>" +i+ " - " +j+ " = " +eval(i-j)+ "</td>";
+					} 
+					output += "</tr>";
+				}
+				table.innerHTML	 =  output;				
+			}
+		}
+	</script>
+</body>
+</html>
